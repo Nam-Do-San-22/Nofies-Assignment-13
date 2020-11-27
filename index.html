@@ -20,8 +20,8 @@
     <div class="Input animated fadeInDown">
       <p class="text-center font-weight-bold pt-3">Enter Your Age <br>(your age must not be greater than 90)</p>
 
-      <input type="number" class="form-control" placeholder="e.g. 21" id="Age" >
-      <div class="btn-group  pt-3" role="group" aria-label="Basic example">
+      <input type="number" class="form-control" placeholder="e.g. 21" id="Age" value="submit">
+      <div class="btn-group  pt-3" role="group">
         <button onclick="LifeInWeeks()" type="button" class="btn btn-dark" >Submit</button>
         
         <button onclick="refresh()" type="button" class="btn btn-dark">Reset</button>
@@ -42,20 +42,22 @@
 
     <script>
         function LifeInWeeks(){
-            var yourAge = document.getElementById('Age').value;
+            var yourAge =+document.getElementById('Age').value;
             
             var daysLeft = (365*90) - (yourAge * 365);
             var weeksLeft = (52*90) - (yourAge * 52);
             var monthsLeft = (12*90) - (yourAge * 12);
-
-            if(yourAge <=90){
+            
+            if(yourAge >0 && yourAge <=90){
                 document.getElementById("Text").innerHTML += "You have " + daysLeft + " days, " + weeksLeft + " weeks and " + monthsLeft +" months left." ;
             }
-            else{
-                alert('Your age must be less than or equal to 90')
-            }
+          else{
+            alert("Invalid Input");
 
-        }
+          }
+            }
+            
+        
 
 
 
